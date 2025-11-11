@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Theme */
+    --bg-primary: 248 248 248;
+    --bg-secondary: 240 240 242;
+    --bg-card: 255 255 255;
+    --text-primary: 30 31 35;
+    --text-secondary: 86 90 102;
+    --accent-taupe: 198 166 120;
+    --accent-blue: 63 142 252;
+    --border-gray: 86 90 102;
+    --success: 74 222 128;
+    --danger: 239 68 68;
+    --warning: 250 204 21;
+  }
+
+  .dark {
+    /* Dark Theme */
+    --bg-primary: 14 14 17;
+    --bg-secondary: 30 31 35;
+    --bg-card: 30 31 35;
+    --text-primary: 248 248 248;
+    --text-secondary: 198 166 120;
+  }
+
+  * {
+    @apply border-border-gray/20;
+  }
+
+  body {
+    @apply bg-light-bg-primary dark:bg-dark-bg-primary text-light-text-primary dark:text-dark-text-primary;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-accent-taupe text-light-text-primary px-6 py-3 rounded-pill font-medium
+      hover:bg-accent-taupe/90 active:scale-95 transition-all duration-200
+      shadow-sm hover:shadow-md;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-accent-blue text-accent-blue px-6 py-3 rounded-pill font-medium
+      hover:bg-accent-blue hover:text-white active:scale-95 transition-all duration-200;
+  }
+
+  .card {
+    @apply bg-light-bg-card dark:bg-dark-bg-card border border-border-gray/20
+      rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow duration-200;
+  }
+
+  .input {
+    @apply bg-light-bg-card dark:bg-dark-bg-secondary border border-border-gray
+      rounded-lg px-4 py-3 text-body focus:ring-2 focus:ring-accent-blue focus:border-accent-blue
+      transition-all duration-200;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-taupe to-accent-blue;
+  }
+
+  .container-custom {
+    @apply max-w-[1200px] mx-auto px-4 md:px-8;
+  }
+
+  .section-padding {
+    @apply py-20 md:py-32;
+  }
+
+  .hover-lift {
+    @apply hover:-translate-y-1 transition-transform duration-200;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-light-bg-secondary dark:bg-dark-bg-primary;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-accent-taupe rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-accent-taupe/80;
+}
+
+/* Selection */
+::selection {
+  @apply bg-accent-taupe/30 text-light-text-primary;
+}
+
+/* Focus visible */
+*:focus-visible {
+  @apply outline-2 outline-offset-2 outline-accent-blue;
+}

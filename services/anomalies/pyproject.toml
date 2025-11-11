@@ -1,0 +1,46 @@
+[tool.poetry]
+name = "ayvlo-anomalies"
+version = "1.0.0"
+description = "Anomaly detection service with ML ensemble for Ayvlo"
+authors = ["Ayvlo Team <engineering@ayvlo.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.115.0"
+uvicorn = {extras = ["standard"], version = "^0.32.0"}
+pydantic = "^2.9.0"
+pydantic-settings = "^2.6.0"
+
+# ML Libraries
+prophet = "^1.1.6"
+scikit-learn = "^1.5.0"
+pandas = "^2.2.0"
+numpy = "^2.0.0"
+tensorflow = "^2.18.0"  # For LSTM
+
+# Data & Infrastructure
+clickhouse-connect = "^0.8.8"
+httpx = "^0.28.0"
+redis = "^5.2.0"
+asyncpg = "^0.30.0"
+sqlalchemy = {extras = ["asyncio"], version = "^2.0.36"}
+
+# Observability
+prometheus-client = "^0.21.0"
+structlog = "^24.4.0"
+
+# Utilities
+tenacity = "^9.0.0"
+joblib = "^1.4.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^8.3.0"
+pytest-asyncio = "^0.24.0"
+pytest-cov = "^6.0.0"
+black = "^24.10.0"
+ruff = "^0.8.0"
+mypy = "^1.13.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
