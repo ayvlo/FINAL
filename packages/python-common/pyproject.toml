@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ayvlo-common"
+version = "1.0.0"
+description = "Shared Python utilities for Ayvlo services"
+requires-python = ">=3.12"
+
+dependencies = [
+    "pydantic>=2.10.0",
+    "structlog>=24.4.0",
+    "opentelemetry-api>=1.28.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["ayvlo_common*"]
